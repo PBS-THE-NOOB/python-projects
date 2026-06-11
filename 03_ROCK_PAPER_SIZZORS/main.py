@@ -4,7 +4,7 @@ def get_computer_choice():
     computer_to_game_dict={
         1:"rock",
         2:"paper",
-        3:"sizzor"
+        3:"scissor"
     }
     computer=computer_to_game_dict[random.randint(1,3)]
     return computer
@@ -15,7 +15,7 @@ def check_user_choice(user_choice):
 def get_result(computer_choice,user_choice):
     if user_choice==computer_choice:
         return "IT IS A DRAW!"
-    elif (user_choice=="rock" and computer_choice=="sizzor") or (user_choice=="paper" and computer_choice=="rock") or (user_choice=="sizzor" and computer_choice=="paper"):
+    elif (user_choice=="rock" and computer_choice=="scissor") or (user_choice=="paper" and computer_choice=="rock") or (user_choice=="scissorr" and computer_choice=="paper"):
         return "YOU WIN!"
     else:
         return "YOU LOST!"
