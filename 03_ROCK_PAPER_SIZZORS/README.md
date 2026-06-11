@@ -26,8 +26,9 @@ My first attempt at creating a complete Python game using functions and clean co
 
 ```bash
 python main.py
+```
 
-## Things I learnt
+## What I Learned
 
 1. Breaking programs into smaller parts
 2. Keeping logic organized
