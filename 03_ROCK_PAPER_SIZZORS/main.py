@@ -1,4 +1,5 @@
 import random
+import data_info
 
 def get_computer_choice():
     computer_to_game_dict={
@@ -15,7 +16,7 @@ def check_user_choice(user_choice):
 def get_result(computer_choice,user_choice):
     if user_choice==computer_choice:
         return "IT IS A DRAW!"
-    elif (user_choice=="rock" and computer_choice=="scissor") or (user_choice=="paper" and computer_choice=="rock") or (user_choice=="scissorr" and computer_choice=="paper"):
+    elif (user_choice=="rock" and computer_choice=="scissor") or (user_choice=="paper" and computer_choice=="rock") or (user_choice=="scissor" and computer_choice=="paper"):
         return "YOU WIN!"
     else:
         return "YOU LOST!"

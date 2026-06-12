@@ -5,7 +5,7 @@ def init_file():
     except FileExistsError:
         pass
 
-def load_history():
+def print_history():
     with open("history.txt", "r") as f:
         for i,line in enumerate(f,start=1):
             user_choice,computer_choice,result=line.strip().split(",")
