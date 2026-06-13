@@ -1,36 +1,51 @@
-# Rock Paper Scissors
+# Rock Paper Scissors :
 
-My first attempt at creating a complete Python game using functions and clean code structure. This project helped me practice program design, user input validation, and game logic.
+A simple but structured Rock Paper Scissors game built in Python.  
+This project started as a basic script and slowly turned into a modular CLI game with history tracking and statistics.
 
+------------------------------------------------------------------------------------------
 
-## Features
+## Features:
 
-- Random computer choices
-- User input validation
-- Win, lose, and draw detection
-- Play multiple rounds without restarting the program
+- Play Rock Paper Scissors against the computer
+- Persistent game history saved in a text file
+- View full match history
+- See win / loss / draw statistics
+- Clean menu-based navigation system
+- Option to quit anytime during gameplay or menus
 
-## How It Works
+------------------------------------------------------------------------------------------
 
-1. The player enters either rock, paper, or scissor.
-2. The computer randomly selects a choice.
-3. The program compares both choices.
-4. The result is displayed.
-5. The player can choose to play again or quit.
+## What I Learned:
 
-## Requirements
+This project helped me understand a lot more than just basic Python syntax.
 
-- Python 3.x
+Some key things I picked up:
 
-## Running the Program
+- Splitting a program into multiple modules (`main`, `menu`, `game`, `data_info`)
+- File handling (reading and writing game history)
+- Input validation and handling unexpected user input
+- Working with loops in a structured way instead of messy repetition
+- Basic program flow control between functions and modules
+- Debugging real issues (like file errors, wrong returns, and loop recursion problems)
+
+It also made me realize how small design decisions (like return values) can affect the whole program flow.
+
+------------------------------------------------------------------------------------------
+
+## Project Structure:
+- main.py → Controls the main game loop
+- menu.py → Handles user menu and navigation
+- game.py → Game logic (RPS mechanics)
+- data_info.py → File handling + statistics
+- history.txt → Stores game results
+
+##  How to Run:
+Just run:
 
 ```bash
 python main.py
 ```
 
-## What I Learned
 
-1. Breaking programs into smaller parts
-2. Keeping logic organized
-3. decomposition( breaking a problem into smaller pieces ) using functions 
 
