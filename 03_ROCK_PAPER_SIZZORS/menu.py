@@ -16,8 +16,11 @@ TO QUIT   ENTER:4   \n''')
 def win_loss_draw():
     print("-----------------Statistics-----------------")
     print('SEE WIN RATE  | ENTER:1\nSEE LOSS RATE  | ENTER:2\nSEE DRAW RATE  | ENTER:3\n')
+    choice_str=(input("ENTER YOUR CHOICE(Enter 'quit' to QUIT): ")).strip()
+    if choice_str.lower()=="quit":
+      return "quit"
     try:
-      choice=int(input("ENTER YOUR CHOICE: "))
+      choice=int(choice_str)
       if choice==1:
         return data_info.display_rate("win")
       elif choice==2:
@@ -26,30 +29,39 @@ def win_loss_draw():
         return data_info.display_rate("draw")
       else:
          return "Invalid Input"
-         
     except ValueError:
       return "Invalid Input"
-    
+      
+         
 def call_function():
     choice=ask_choice()
     print()
     if choice==1:
         if game.play_game() == "quit":
-           call_function()
+           return
     elif choice==2:
         print(data_info.load_history())
     elif choice==3:
         while True:
-            check=win_loss_draw()
+            check = win_loss_draw()
             if check=="Invalid Input":
                 print("Try again! Invalid input!")
-            else:
+                continue
+            elif check=="NO_GAME":
+               print("No games played yet.")
+               continue
+            elif check=="quit":
+               
                break
-        print(f"The rate is: {check} per 100 games.")
+            else:
+               print(f"The rate is: {check}%")
+               continue
+        
     elif choice==4:
        return "quit"
     elif choice=="Invalid":
        return "Invalid"
+
     
         
 

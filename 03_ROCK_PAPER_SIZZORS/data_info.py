@@ -4,7 +4,7 @@ def init_file():
         open("history.txt", "x").close()
     except FileExistsError:
         pass
-
+init_file()
 def load_history():
     history=""
     with open("history.txt", "r") as f:
@@ -40,8 +40,11 @@ def get_values(x):
 
 def display_rate(key_word):
     x = get_values("result")
-    count= x.count(key_word)
-    return count / len(x) * 100
+    if len(x) > 0:
+        count= x.count(key_word)
+        return count / len(x) * 100
+    else :
+        return "NO_GAME"
 
 
 
