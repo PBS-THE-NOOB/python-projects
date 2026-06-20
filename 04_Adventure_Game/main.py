@@ -17,8 +17,6 @@ Go to Shop? Press:"4"\n''')
         print("Invalid Input")
         menu()
 
-import time
-
 def Entering_animation(phase):
     print(f"Entering {phase}", end="", flush=True)
     for _ in range(3):  
@@ -26,6 +24,8 @@ def Entering_animation(phase):
             print(f"\rEntering {phase}" + "." * dots, end="", flush=True)
             time.sleep(0.5)
     print()  
+
+
 
 
 
