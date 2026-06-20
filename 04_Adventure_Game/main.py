@@ -1,4 +1,5 @@
 #tasks create a simple menu:
+import time
 def menu():
     print("GAME MENU\n")
     print('''Play game? Press:"1"
@@ -16,4 +17,15 @@ Go to Shop? Press:"4"\n''')
         print("Invalid Input")
         menu()
 
-menu()
+import time
+
+def Entering_animation(phase):
+    print(f"Entering {phase}", end="", flush=True)
+    for _ in range(3):  
+        for dots in range(4): 
+            print(f"\rEntering {phase}" + "." * dots, end="", flush=True)
+            time.sleep(0.5)
+    print()  
+
+
+
