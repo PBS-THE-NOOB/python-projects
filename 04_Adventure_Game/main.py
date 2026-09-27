@@ -17,6 +17,17 @@ Go to Shop? Press:"4"\n''')
         print("Invalid Input")
         menu()
 
+def direct_location(check):
+    if check==1:
+        print('Game Menu')
+        print("""Choose Phase: Enter the corresponding phase""")
+    elif check==2:
+        pass
+    elif check==3:
+        pass
+    elif check==4:
+        pass
+
 def Entering_animation(phase):
     print(f"Entering {phase}", end="", flush=True)
     for _ in range(3):  
