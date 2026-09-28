@@ -8,23 +8,27 @@ def input_data():
 
 def check_input_data():
 
-    check = input_data()
+    while True:
+        check = input_data()
 
-    if check in ["1", "forest"]:
-        forest()
+        if check in ["1", "forest"]:
+            forest()
+            return
 
-    elif check in ["2", "temple"]:
-        print("\nThe temple is currently under construction.")
+        elif check in ["2", "temple"]:
+            print("\nThe temple is currently under construction.")
+            return
 
-    elif check in ["3", "coming"]:
-        print("\nThis region is coming soon.")
+        elif check in ["3", "coming"]:
+            print("\nThis region is coming soon.")
+            return
 
-    elif check == "quit":
-        print("\nReturning to the main menu.")
+        elif check == "quit":
+            print("\nReturning to the main menu.")
+            return
 
-    else:
-        print("\nInvalid region. Try again.")
-        check_input_data()
+        else:
+            print("\nInvalid region. Try again.")
 
 def forest():
     print("\n" + "=" * 50)
