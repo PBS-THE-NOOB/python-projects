@@ -1,3 +1,6 @@
+import hp
+from random import randint
+
 def input_data():
     print("YOU HAVE CHOOSEN TO PLAY THE GAME \nIF YOU WISH TO GO BACK TYPE : QUIT \nCHOOSE YOUR REGION:")
     value=input('''FOR \t\t\t PRESS
@@ -12,14 +15,17 @@ def check_input_data():
         check = input_data()
 
         if check in ["1", "forest"]:
+            hp.new_game()
             forest()
             return
 
         elif check in ["2", "temple"]:
+            hp.new_game()
             print("\nThe temple is currently under construction.")
             return
 
         elif check in ["3", "coming"]:
+            hp.new_game()
             print("\nThis region is coming soon.")
             return
 
@@ -105,8 +111,8 @@ def battle():
 
     # Temporary HP values.
     # We will replace these with the proper HP system later.
-    player_hp = 100
-    enemy_hp = 50
+    player_hp = hp.give_health()
+    enemy_hp = round(randint(50,100)/10)*10
 
     while player_hp > 0 and enemy_hp > 0:
 
@@ -122,7 +128,7 @@ Choose your action: """).lower()
         if choice in ["1", "attack"]:
             print("\nYou attack the creature!")
 
-            damage = 20
+            damage = round(randint(10,30)/10)*10
             enemy_hp -= damage
 
             print(f"You dealt {damage} damage!")
@@ -135,9 +141,10 @@ Choose your action: """).lower()
 
             print("\nThe creature attacks you!")
 
-            enemy_damage = 10
-            player_hp -= enemy_damage
-
+            enemy_damage=round(randint(10,30)/10)*10
+            player_hp=hp.player_damage(enemy_damage)
+            if player_hp==0:
+                print("GAME OVER! YOU HAVE BEEN DEFEATED.")
             print(f"The creature dealt {enemy_damage} damage!")
 
         elif choice in ["2", "run"]:
@@ -149,3 +156,5 @@ Choose your action: """).lower()
 
         else:
             print("\nInvalid choice. Choose 1 or 2.")
+
+check_input_data()

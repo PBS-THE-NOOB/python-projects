@@ -1,2 +1,4 @@
 .adventure_game_env/
-hp_track.txt
+hp_track.txt    
+__pycache__/
+*.pyc
