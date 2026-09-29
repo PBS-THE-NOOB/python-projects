@@ -156,5 +156,3 @@ Choose your action: """).lower()
 
         else:
             print("\nInvalid choice. Choose 1 or 2.")
-
-check_input_data()
