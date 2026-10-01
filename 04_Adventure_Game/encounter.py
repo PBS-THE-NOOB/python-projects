@@ -1,35 +1,14 @@
 import random
 import hp
-creatures = {
-    1: {
-        "name": "Wolf",
-        "hp": 50,
-        "damage": 10
-    },
-    2: {
-        "name": "Goblin",
-        "hp": 200,
-        "damage": 20
-    },
-    3: {
-        "name": "Demon",
-        "hp": 500,
-        "damage": 50
-    },
-    4: {
-        "name": "Mega Boss",
-        "hp": 1000,
-        "damage": 99
-    }
-}
+import creature_info
 
 def encounter():
     print("\n" + "=" * 50)
     print("ENCOUNTER!")
     print("=" * 50)
 
-    creature_Selector=random.randint(1,len(creatures))
-    creature=creatures[creature_Selector]
+    creature_Selector=random.randint(1,len(creature_info.creatures))
+    creature=creature_info.creatures[creature_Selector]
     print(f"""
 A creature suddenly jumps out from the bushes!
 
@@ -43,7 +22,7 @@ You have no choice but to fight.
 
 def battle(creature):
     print("\n" + "-" * 40)
-    print("BATTLE START")
+    print(f"BATTLE START\t\tENEMY:{creature["name"]}")
     print("-" * 40)
 
     player_hp = hp.give_health()
@@ -79,7 +58,7 @@ Choose your action: """).lower()
             enemy_damage=creature["damage"]
             player_hp=hp.player_damage(enemy_damage)
             if player_hp==0:
-                print("GAME OVER! YOU HAVE BEEN DEFEATED.")
+                print(f"{'=' * 50}\nGAME OVER! YOU HAVE BEEN DEFEATED.\n{'=' * 50}")
             print(f"The creature dealt {enemy_damage} damage!")
 
         elif choice in ["2", "run"]:

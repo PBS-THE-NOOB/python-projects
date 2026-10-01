@@ -1,6 +1,7 @@
 import hp
 import encounter
 from random import randint
+import time
 
 def input_data():
     print("YOU HAVE CHOOSEN TO PLAY THE GAME \nIF YOU WISH TO GO BACK TYPE : QUIT \nCHOOSE YOUR REGION:")
@@ -37,10 +38,19 @@ def check_input_data():
         else:
             print("\nInvalid region. Try again.")
 
+def Entering_animation(phase):
+    print(f"Entering {phase}", end="", flush=True)
+    for _ in range(3):  
+        for dots in range(4): 
+            print(f"\rEntering {phase}" + "." * dots, end="", flush=True)
+            time.sleep(0.5)
+    print()
+
 def forest():
+    Entering_animation("Forest")
     print("\n" + "=" * 50)
     print("YOU HAVE ENTERED THE FOREST")
-    print("=" * 50)
+    print("=" * 50) 
     print("""
 The trees around you are unusually quiet.
 A cold wind passes through the branches.

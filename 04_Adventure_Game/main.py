@@ -1,5 +1,5 @@
 #tasks create a simple menu:
-import time
+import game
 def menu():
     print("GAME MENU\n")
     print('''Play game? Press:"1"
@@ -12,15 +12,16 @@ Go to Shop? Press:"4"\n''')
             return check
         else:
             print("Not On The List!Try Again!")
-            menu()
     except ValueError:
         print("Invalid Input")
         menu()
+def start_game():
+    get_value=menu()
+    direct_location(get_value)
 
 def direct_location(check):
     if check==1:
-        print('Game Menu')
-        print("""Choose Phase: Enter the corresponding phase""")
+        game.check_input_data()
     elif check==2:
         pass
     elif check==3:
@@ -28,15 +29,5 @@ def direct_location(check):
     elif check==4:
         pass
 
-def Entering_animation(phase):
-    print(f"Entering {phase}", end="", flush=True)
-    for _ in range(3):  
-        for dots in range(4): 
-            print(f"\rEntering {phase}" + "." * dots, end="", flush=True)
-            time.sleep(0.5)
-    print()  
-
-
-
-
+start_game()
 
