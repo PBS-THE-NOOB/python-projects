@@ -1,9 +1,12 @@
 import stats 
 player=stats.Player_Stats()
+def write_hp(content):
+    with open("hp_track.txt","w") as f:
+            f.write(str(max(0,content)))
 def new_game():
     player_hp=player.player_health
-    with open("hp_track.txt","w") as f:
-        f.write(str(player_hp))
+    write_hp(player_hp)
+    
 
 def give_health():
     with open("hp_track.txt","r") as f:
@@ -11,16 +14,10 @@ def give_health():
     return(int(hp))
     
 def player_damage(damage):
-    
-    with open("hp_track.txt","r") as f:
-            hp=int(f.read())
+    hp=give_health()
     hp-=player.get_damage(damage)
-    if hp>0:
-        with open("hp_track.txt","w") as f:
-            f.write(str(hp))
-    else:
-        with open("hp_track.txt", "w") as f:
-            f.write(str(hp))
+    write_hp(hp)
+    if hp<=0:
         return 0
     return(int(hp))  
 
