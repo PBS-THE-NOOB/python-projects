@@ -1,7 +1,7 @@
 import stats 
 player=stats.Player_Stats()
 def new_game():
-    player_hp=100
+    player_hp=player.player_health
     with open("hp_track.txt","w") as f:
         f.write(str(player_hp))
 
