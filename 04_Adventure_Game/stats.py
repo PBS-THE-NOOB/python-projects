@@ -22,8 +22,8 @@ class Player_Stats():
         return (round(random.randint(min_damage,max_damage))/10)*10
      def get_damage(self,damage):
          return max(0,damage-self.defence_boost*10)
-    
-         
+#an object that can be called in all modules keeping data consistent.
+player=Player_Stats()
           
 
         

@@ -1,5 +1,4 @@
-import stats 
-player=stats.Player_Stats()
+from stats import player
 def write_hp(content):
     with open("hp_track.txt","w") as f:
             f.write(str(max(0,content)))
