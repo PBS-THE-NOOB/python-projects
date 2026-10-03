@@ -57,49 +57,40 @@ A cold wind passes through the branches.
 
 You see four possible paths.
 """)
-    while True:
-        direction = input("""
-    MOVE:
-
-    W -> FORWARD
-    A -> LEFT
-    S -> BACKWARD
-    D -> RIGHT
-
-    Enter your move: """).lower()
-
-        if direction == "d":
-            print("\nYou move towards the right.")
-            if random_selector()==1:
-                encounter.encounter()
-                break
-            print("There is nothing useful here.")
-
-        elif direction == "a":
-            print("\nYou move towards the left.")
-            if random_selector()==1:
-                encounter.encounter()
-                break
-            print("There is nothing useful here.")
-
-        elif direction == "w":
-            print("\nYou move deeper into the forest.")
-            if random_selector()==1:
-                encounter.encounter()
-                break
-            print("There is nothing useful here.")
-            
-        elif direction == "s":
-            print("\nYou move backward.")
-            print("You return to where you came from.")
-
-        elif direction == "quit":
-            print("\nYou return to the region selection.")
-            return
-
-        else:
-            print("\nInvalid direction. Use W, A, S, or D.")
+    movement()
+    
 
 def random_selector():
-    return randint(0,1)
+    return bool(randint(0,1))
 
+def movement():
+    moves={
+        "d":"\nYou move towards the right.",
+        "a":"\nYou move towards the left.",
+        "s":"\nYou move backward.",
+        "w":"\nYou move deeper into the forest."
+    }
+    while True:
+            direction = input("""
+        MOVE:
+    
+        W -> FORWARD
+        A -> LEFT
+        S -> BACKWARD
+        D -> RIGHT
+    
+        Enter your move: """).lower()
+            if direction == "quit":
+                print("\nYou return to the region selection.")
+                return
+            elif direction in moves:
+                print(moves[direction])
+                if random_selector():
+                    encounter.encounter()
+                    break
+                    
+            elif direction not in moves:
+                print("\nInvalid direction. Use W, A, S, or D.")
+                continue
+            print("There is nothing useful here.")
+            
