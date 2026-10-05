@@ -11,13 +11,12 @@ def level_encounter_matcher(creature):
     elif player.player_level<=15:
         return True
 def encounter():
-    print("\n" + "=" * 50)
-    print("ENCOUNTER!")
-    print("=" * 50)
-
     creature_Selector=random.randint(1,len(creature_info.creatures))
     creature=creature_info.creatures[creature_Selector]
     if level_encounter_matcher(creature):
+        print("\n" + "=" * 50)
+        print("ENCOUNTER!")
+        print("=" * 50)
         print(f"""
 A creature suddenly jumps out from the bushes!
 
@@ -28,6 +27,8 @@ You have no choice but to fight.
 """)
 
         battle(creature)
+        return True
+    return False
 
 def battle(creature):
     print("\n" + "-" * 40)
@@ -72,10 +73,15 @@ Choose your action: """).lower()
 
         elif choice in ["2", "run"]:
             print("\nYou try to escape...")
+            if random.choice([True,False]):
+                print("You successfully escaped the creature")
+                break
+            else:
+                enemy_damage=creature.damage
+                player_hp=hp.player_damage(enemy_damage)
+                print("You failed to escape!"+"\n"+"\nBATTLE CONTINUES...")
+                print(f"The creature dealt {enemy_damage} damage!")
 
-            # Prototype: running always succeeds for now.
-            print("You escaped from the creature!")
-            break
-
+                continue
         else:
             print("\nInvalid choice. Choose 1 or 2.")

@@ -86,8 +86,8 @@ def movement():
             elif direction in moves:
                 print(moves[direction])
                 if random_selector():
-                    encounter.encounter()
-                    break
+                    if encounter.encounter():
+                        continue
                     
             elif direction not in moves:
                 print("\nInvalid direction. Use W, A, S, or D.")
