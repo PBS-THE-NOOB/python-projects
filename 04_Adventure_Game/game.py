@@ -93,4 +93,3 @@ def movement():
                 print("\nInvalid direction. Use W, A, S, or D.")
                 continue
             print("There is nothing useful here.")
-            

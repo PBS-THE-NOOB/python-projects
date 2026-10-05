@@ -8,6 +8,7 @@ class Player_Stats():
           self.damage_boost=0
           self.defence_boost=0
           self.attack_level=1
+          self.player_level=1
      def damage_upgrade(self,increase):
          self.damage_boost+=increase
      def defence_upgrade(self,increase):

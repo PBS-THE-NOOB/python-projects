@@ -1,7 +1,15 @@
 import random
 import hp
+from stats import player
 import creature_info
 
+def level_encounter_matcher(creature):
+    if player.player_level<=5:
+        return creature.health_below_50()
+    elif player.player_level<=10:
+        return creature.health_below_100()
+    elif player.player_level<=15:
+        return True
 def encounter():
     print("\n" + "=" * 50)
     print("ENCOUNTER!")
@@ -9,24 +17,25 @@ def encounter():
 
     creature_Selector=random.randint(1,len(creature_info.creatures))
     creature=creature_info.creatures[creature_Selector]
-    print(f"""
+    if level_encounter_matcher(creature):
+        print(f"""
 A creature suddenly jumps out from the bushes!
 
-It looks like a {creature["name"]}.
+It looks like a {creature.name}.
 
 The creature growls at you.
 You have no choice but to fight.
 """)
 
-    battle(creature)
+        battle(creature)
 
 def battle(creature):
     print("\n" + "-" * 40)
-    print(f"BATTLE START\t\tENEMY:{creature["name"]}")
+    print(f"BATTLE START\t\tENEMY:{creature.name}")
     print("-" * 40)
 
     player_hp = hp.give_health()
-    enemy_hp = creature["hp"]
+    enemy_hp = creature.hp
 
     while player_hp > 0 and enemy_hp > 0:
 
@@ -55,7 +64,7 @@ Choose your action: """).lower()
 
             print("\nThe creature attacks you!")
 
-            enemy_damage=creature["damage"]
+            enemy_damage=creature.damage
             player_hp=hp.player_damage(enemy_damage)
             print(f"The creature dealt {enemy_damage} damage!")
             if player_hp==0:
