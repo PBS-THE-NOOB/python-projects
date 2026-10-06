@@ -78,10 +78,13 @@ def movement():
         A -> LEFT
         S -> BACKWARD
         D -> RIGHT
+
+        Type "Quit" to return to Game menu.
     
         Enter your move: """).lower()
             if direction == "quit":
-                print("\nYou return to the region selection.")
+                print("\nYou return to the Game Menu")
+                Entering_animation("Game Menu")
                 return
             elif direction in moves:
                 print(moves[direction])

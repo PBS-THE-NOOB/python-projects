@@ -67,7 +67,7 @@ Choose your action: """).lower()
 
             enemy_damage=creature.damage
             player_hp=hp.player_damage(enemy_damage)
-            print(f"The creature dealt {enemy_damage} damage!")
+            print(f"\nThe creature dealt {enemy_damage} damage!")
             if player_hp==0:
                 print(f"{'=' * 50}\nGAME OVER! YOU HAVE BEEN DEFEATED.\n{'=' * 50}")
 
@@ -80,7 +80,7 @@ Choose your action: """).lower()
                 enemy_damage=creature.damage
                 player_hp=hp.player_damage(enemy_damage)
                 print("You failed to escape!"+"\n"+"\nBATTLE CONTINUES...")
-                print(f"The creature dealt {enemy_damage} damage!")
+                print(f"The creature dealt {enemy_damage} damage!\n")
 
                 continue
         else:
